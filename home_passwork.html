@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <script src="js/jquery.js"></script>
+        <script src="js/seedrandom.js"></script>
+        
+        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        
+        
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+        <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+        <style type="text/css">
+           
+           #test{
+               width:82.5%;
+               height:auto;
+               text-align:left;
+               margin:3% auto 0px auto;
+               border-radius:10px 10px 10px 10px;
+               border:3px black outset;
+               background-color:#fff;
+               
+               
+           }
+            
+            .test1{
+                padding: 1px 15px;
+                border-bottom: 1px solid transparent;
+                border-top-right-radius: 3px;
+                border-top-left-radius: 3px;
+                background-color:black;
+            }
+            .test2{
+                margin-top: 0;
+                margin-bottom: 0;
+                font-size: 30px;
+                color: inherit;
+            }
+          
+ 
+           #randomTable{
+               text-align:center;
+           }
+           #Present{
+                width:20%;
+                height:300px;
+                border:3px black double;
+                border-radius:10px;
+                position:relative;
+                right: 8.6%;
+                float: right;
+                margin-top:30px;
+                overflow:auto;
+           }
+           #Left{
+                width:60%;
+                height:300px;
+                border:3px black double;
+                border-radius:10px;
+                text-align:center;
+                position:relative;
+                left:8.6%;
+                float: left;
+                margin-top:30px;
+                overflow:auto;
+           }
+           
+           .a1{
+               margin-right:5%;
+               margin-left: 5%;
+           }
+           .a2{
+               margin-left: 24%;
+           }
+           .a3{
+               
+               margin-left: 9%;
+               margin-right: 9%;
+           }
+            #a4{
+                font-size:200%;
+                margin-top:1.4%;
+                overflow:auto;
+                
+               
+           }
+           .a4{
+               margin-top:10px;
+               font-size:20px;
+               
+           }
+           hr{
+                display: block;
+                border: 0;
+                height: 0; /* Firefox... */
+                box-shadow: 0 0 10px 1px black;
+           }
+           .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper body{background-image:url(jpg/006.jpg);
+                background-size:cover;
+                opacity: 0.9;
+           }
+        </style>
+        
+    </head>
+    
+       
+    
+    <body>
+        
+    <div data-role="page">
+	<div data-role="content">    
+            
+        <div id="test">
+            <div class="test1">
+                <h2 class="test2">操作手冊</h2>
+            </div>
+                <p>步驟一:請輸入您所喜愛的數字</p>
+                <p>步驟二:選取密碼的長度與類型</p>
+                <p>步驟三:按下產生密碼</p>
+        </div> 
+            
+        
+        <div id="Left">
+                <div class="a1">
+                    <fieldset  data-role="fieldcontain">
+                        <label for="txtInputText" >請輸入亂數表編號：</label>
+                        <input type="text" name="txtInputText" id="txtSeed" value="1234" />
+                    </fieldset>
+                </div>
+                
+                <div class="a1">
+        			<fieldset data-role="fieldcontain">
+                        <label  for="txtInputText1">產生密碼長度</label> 
+                        <div>
+                            <select name="txtInputText1" id="txtInputText1">
+                             <option value="1">1</option>
+                             <option value="2">2</option>
+                             <option value="3">3</option>
+                             <option value="4">4</option>
+                             <option value="5">5</option>
+                             <option value="6">6</option>
+                             <option value="7">7</option>
+                             <option value="8">8</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                <div class="a1">
+                    <fieldset data-role="fieldcontain">
+                        <label for="txtInputText2">產生密碼類型</label>
+                        <div>
+                            <select name="txtInputText2" id="txtInputText2">
+                             <option value="0123456789">數字</option>
+                             <option value="abcdefghijkmnpqrstuvwxyz0123456789">數字+小寫字母</option>
+                             <option value="ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz0123456789">數字+大小寫字母: (去除 I, O, l, o)</option>
+                            </select>
+                        </div>    
+                    </fieldset>
+                </div>
+                
+                <div class="a2" >
+                    <fieldset data-role="fieldcontain ">
+                        <div class="ui-grid-a" data-type="horizontal">
+                            <div class="ui-block-a"><a  data-role="button" id="btnGo" class="ui-btn ui-btn-icon-left ui-icon-cloud ui-btn-b ui-corner-all" >產生亂數表與密碼</a></div>
+                            <div id="a4" class="ui-block-b" ></div>    
+                        <div>
+                    </fieldset>
+                </div>
+                 
+                 
+        </div>
+        
+        
+        <div id = "Present">
+            <div class="test1">
+                <h2 class="test2">亂數表</h2>
+            </div>
+            <div id="randomTable"></div>
+        </div>
+        
+                
+		
+        <script>
+
+            $("#btnGo").click(function () {
+                var result = "";
+                var a = new Array();
+                var b = "";
+                var sPool = $("#txtInputText2").val();
+                
+            	// 純數字:
+                //var sPool = "0123456789";
+                // 數字+小寫字母: (去除 l, o)
+                // var sPool = "abcdefghijkmnpqrstuvwxyz0123456789";
+                // 數字+大小寫字母: (去除 I, O, l, o)
+                // var sPool = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz0123456789";
+            
+                Math.seedrandom($("#txtSeed").val()); // 設定亂數種子
+            	var iRandom = 0; var ch = "?";
+            	for (iRow = 1; iRow <= 10; iRow++) {
+            		var sLine = (iRow + 100).toString().substr(1, 2) + ": ";
+            		for (iCol = 1; iCol <= 10; iCol++) {
+            			iRandom = Math.floor(Math.random() * sPool.length);
+            			ch = sPool.substr(iRandom, 1);
+            			
+            			sLine += ch ;
+            			
+            		}
+            		switch(iRow){
+            		    case 1:
+            		        a[0]=sLine.substr(6,1);
+            		        a[3]=sLine.substr(11,1);
+            		        break;
+            		    case 3:
+            		        a[1]=sLine.substr(4,1);
+            		        a[4]=sLine.substr(5,1);
+            		        break;
+            		    case 4:
+            		        a[7]=sLine.substr(6,1);
+            		        break;
+            		    case 6:
+            		        a[2]=sLine.substr(5,1);
+            		        a[5]=sLine.substr(5,1);
+            		        break;
+            		    case 7:
+            		        a[6]=sLine.substr(6,1);
+            		        break;
+            		}
+            	
+            		result += sLine + "<br>";
+            	}
+            	$("#randomTable").html(result);
+            	
+            	for(i=0;i< $("#txtInputText1").val();i++){
+            	    b = b + a[i];
+            	}
+            	$("#a4").text(b);
+                document.getElementById("a4").style.backgroundColor="black";
+            	
+            });
+        
+        </script>
+    </div>
+    
+    
+    
+        <div class="a3">
+            <h2>
+            	<img src="jpg/007.jpg" width="60" heught="60">
+            	<string>軟體說明<string>
+                <hr>
+            </h2>
+            
+            
+            <div class="a4">
+                <p>好密碼的條件：愈長、愈亂、愈與個人資料無關。</p>
+                <p>問題是，這樣子的密碼會不會就愈記不住？</p>
+                
+                <p>於是，某人就想啦－－既然記不住，不如就將密碼
+                <p>寫下來，例如，銀行密碼就寫在提款卡的背面，但
+                是，最重要就是但是：不要寫得太直白。</p>
+                <p>
+                怎麼辦呢？他參考 http://ppt.cc/rELO 寫了一支
+                亂數產生器，程式請參考 index.html
+                
+                程式寫出來後，輸入1234並且產生亂數表。如下：</p>
+                
+               <p> 01: 3499305845</p>
+               <p> 02: 1769646932</p>
+               <p> 03: 3175789704</p>
+               <p> 04: 4592818053</p>
+               <p> 05: 1597861333</p>
+               <p> 06: 4414077977</p>
+               <p> 07: 2122376182</p>
+               <p> 08: 1169150223</p>
+               <p> 09: 6149827002</p>
+               <p> 10: 1990694015</p>
+                
+                
+                <p>接下來，在提款卡背面寫下:</p>
+                
+                <p>13 31 62 18 32 62 73 43</p>
+                
+                <p>他的意思是：密碼的－－
+                <p>第一個字元是第一橫列，第三直欄，也就是 9；</p>
+                <p>第二個字元是第三橫列，第一直欄，也就是 3；</p>
+                <p>(以下類推...)
+                銀行密碼：93481429。
+                </p>
+                
+                <p>好極了，以後就只需記得例如 1234 這組密碼即可。</p>
+            </div>    
+            
+        </div> 
+    
+    
+    </div>
+    </body>
+</html>
